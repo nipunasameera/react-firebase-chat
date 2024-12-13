@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
 
@@ -6,6 +6,12 @@ const Chat = () => {
 
     const [open, setOpen] = useState(false);
     const [text, setText] = useState("");
+
+    const endRef = useRef(null);
+
+    useEffect(()=>{
+        endRef.current?.scrollIntoView({behavior:"smooth"})
+    })
 
     const handleEmoji = e =>{
         setText(prev=>prev+e.emoji);
@@ -67,11 +73,40 @@ const Chat = () => {
                 </div>
                 <div className="message own">
                     <div className="texts">
+                        <p>asnsanunsaunsanbdskfbskdbsbdnsbdnksbdksbdsdks</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message">
+                    <img src="./avatar.png" alt=""/>
+                    <div className="texts">
+                        <p>asnsanunsaunsanbdskfbskdbsbdnsbdnksbdksbdsdks</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message own">
+                    <div className="texts">
+                        <p>asnsanunsaunsanbdskfbskdbsbdnsbdnksbdksbdsdks</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message">
+                    <img src="./avatar.png" alt=""/>
+                    <div className="texts">
+                        <p>asnsanunsaunsanbdskfbskdbsbdnsbdnksbdksbdsdks</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message own">
+                    <div className="texts">
                         <img src="https://images.pexels.com/photos/29475573/pexels-photo-29475573/free-photo-of-traditional-spice-market-in-bukhara-uzbekistan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                         <p>asnsanunsaunsanbdskfbskdbsbdnsbdnksbdksbdsdks</p>
                         <span>1 min ago</span>
                     </div>
                 </div>
+
+                <div ref={endRef}></div>
+
             </div>
 
             <div className="bottom">
